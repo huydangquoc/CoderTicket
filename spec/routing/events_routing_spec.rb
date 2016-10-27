@@ -13,4 +13,8 @@ RSpec.describe "routes for Events", :type => :routing do
     )
   end
 
+  it "routes `search event` go to `events#index`" do
+    expect(:get => "/?search=Da+Lat").to route_to('events#index', search: "Da Lat")
+  end
+
 end
