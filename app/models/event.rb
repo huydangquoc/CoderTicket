@@ -9,4 +9,9 @@ class Event < ActiveRecord::Base
   def venue_name
     venue.try(:name)
   end
+
+  def self.upcoming
+    # http://guides.rubyonrails.org/active_record_querying.html
+    where('starts_at > ?', Date.today)
+  end
 end
