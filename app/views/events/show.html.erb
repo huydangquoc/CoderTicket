@@ -12,7 +12,6 @@
             <div class="col-md-6">
               <%= ticket_type.name %>
             </div>
-
             <div class="col-md-6 price text-right">
               <%= number_to_currency(ticket_type.price, unit: 'VND', precision: 0) %>
             </div>
@@ -31,29 +30,24 @@
         <div class="pull-left">
           <%= fa_icon 'clock-o' %>
         </div>
-        <div class="time-details"> 
-          <%= @event.starts_at.strftime('%A, %d %b %Y %l:%M %p') %> 
+        <div class="time-details">
+          <%= @event.starts_at.strftime('%A, %d %b %Y %l:%M %p') %>
         </div>
-
-        
-
         <div class="pull-left">
           <%= fa_icon 'map-marker' %>
         </div>
         <div class="venue-details">
-         <%= @event.venue.name %>
-         <br/>
-         <%= @event.venue.full_address %>
+          <%= @event.venue.name %>
+          <br/>
+          <%= @event.venue.full_address %>
         </div>
-
         <div class="img-spacer">
           <%= image_tag 'shadow-top.png' %>
         </div>
         <div class="extended-description">
           <%= @event.extended_html_description.html_safe %>
         </div>
-
-      </div>  
+      </div>
     </div>
   </div>
 </div>

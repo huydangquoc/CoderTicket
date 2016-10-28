@@ -24,7 +24,6 @@ RSpec.describe Event, type: :model do
 
     it "return 0 upcoming event" do
       # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
-
       EventHelpers.event_creator("Event 1", "past_event", @category)
       EventHelpers.event_creator("Event 2", "past_event", @category)
       EventHelpers.event_creator("Event 3", "past_event", @category)

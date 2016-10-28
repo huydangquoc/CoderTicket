@@ -26,7 +26,7 @@ The person with best test coverage will win a small present from the instructor 
         * Implement `EventsController#index` action test
 * [x] Users can search for events from the homepage.
 * [x] Users can click on an event to see details about the event.
-* [ ] Users can click on "Book Now" to go to a page to purchase tickets.
+* [x] Users can click on "Book Now" to go to a page to purchase tickets.
 
 #### Tickets
 
@@ -73,7 +73,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Dang Quoc Huy]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

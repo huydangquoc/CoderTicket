@@ -7,7 +7,7 @@
 
 require 'rails_helper'
 
-RSpec.feature "Click event will see event details", type: :feature do
+RSpec.feature "Book Event", type: :feature do
 
   before do
     # init category object
@@ -17,10 +17,19 @@ RSpec.feature "Click event will see event details", type: :feature do
     event2 = EventHelpers.event_creator("Event 2", "upcoming", @category)
   end
 
-  scenario "User click an event in homepage" do
-    visit "/"
-    click_on "Event 2"
+  scenario "User can click BOOK NOW button" do
+    go_detail_event2
+    click_link "BOOK NOW"
 
-    expect(page).to have_content "Hot Events"
+    expect(page).to have_content "Buy"
+  end
+
+  def visit_homepage
+    visit root_path
+  end
+
+  def go_detail_event2
+    visit_homepage
+    click_on "Event 2"
   end
 end
