@@ -1,3 +1,8 @@
+# Project: RSpec Rails 3.5
+# http://www.relishapp.com/rspec/rspec-rails/v/3-5/docs
+# Project: RSpec Expectations 3.5
+# https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+
 require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
