@@ -3,6 +3,6 @@
 
 FactoryGirl.define do
   factory :venue do
-    name { "#{Random.rand(1...1000)}" }
+    name "Venue Name"
   end
 end

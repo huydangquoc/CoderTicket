@@ -6,13 +6,11 @@ require 'rails_helper'
 RSpec.describe "events/index", type: :view do
 
   context "with 2 events" do
-
     before do
-      # init category object
-      @category = FactoryGirl.create(:category)
-      # create events
-      event1 = EventHelpers.event_creator("Event 1", "upcoming", @category)
-      event2 = EventHelpers.event_creator("Event 2", "upcoming", @category)
+      event1 = FactoryGirl.build(:event, :upcoming, name: "Event 1")
+      event2 = FactoryGirl.build(:event, :past_event, name: "Event 2")
+      event3 = FactoryGirl.build(:event, :past_event, name: "Event 3")
+      EventHelpers.create_list([event1, event2, event3])
       # assign
       assign(:events, [event1, event2])
     end

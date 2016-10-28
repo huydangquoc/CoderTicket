@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-
   let(:category) { category = Category.new }
 
   context "validations" do

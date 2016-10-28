@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-
   let(:event) { event = Event.new }
 
   describe "#venue_name" do
@@ -16,37 +15,32 @@ RSpec.describe Event, type: :model do
   end
 
   describe ".upcoming" do
-
-    before do
-      # init category object
-      @category = FactoryGirl.create(:category)
-    end
-
     it "return 0 upcoming event" do
       # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
-      EventHelpers.event_creator("Event 1", "past_event", @category)
-      EventHelpers.event_creator("Event 2", "past_event", @category)
-      EventHelpers.event_creator("Event 3", "past_event", @category)
+      event1 = FactoryGirl.build(:event, :past_event, name: "Event 1")
+      event2 = FactoryGirl.build(:event, :past_event, name: "Event 2")
+      event3 = FactoryGirl.build(:event, :past_event, name: "Event 3")
+      EventHelpers.create_list([event1, event2, event3])
 
       expect(Event.upcoming).to eq []
     end
 
     it "return 1 upcoming event" do
-      EventHelpers.event_creator("Event 1", "upcoming", @category)
-      EventHelpers.event_creator("Event 2", "past_event", @category)
-      EventHelpers.event_creator("Event 3", "past_event", @category)
+      event1 = FactoryGirl.build(:event, :upcoming, name: "Event 1")
+      event2 = FactoryGirl.build(:event, :past_event, name: "Event 2")
+      event3 = FactoryGirl.build(:event, :past_event, name: "Event 3")
+      EventHelpers.create_list([event1, event2, event3])
 
       expect(Event.upcoming.count).to eq 1
     end
 
     it "return 3 upcoming event" do
-      EventHelpers.event_creator("Event 1", "upcoming", @category)
-      EventHelpers.event_creator("Event 2", "upcoming", @category)
-      EventHelpers.event_creator("Event 3", "upcoming", @category)
+      event1 = FactoryGirl.build(:event, :upcoming, name: "Event 1")
+      event2 = FactoryGirl.build(:event, :upcoming, name: "Event 2")
+      event3 = FactoryGirl.build(:event, :upcoming, name: "Event 3")
+      EventHelpers.create_list([event1, event2, event3])
 
       expect(Event.upcoming.count).to eq 3
     end
-
   end
-
 end

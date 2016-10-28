@@ -8,13 +8,11 @@
 require 'rails_helper'
 
 RSpec.feature "Click event will see event details", type: :feature do
-
   before do
-    # init category object
-    @category = FactoryGirl.create(:category)
-    # create events
-    event1 = EventHelpers.event_creator("Event 1", "upcoming", @category)
-    event2 = EventHelpers.event_creator("Event 2", "upcoming", @category)
+    @event1 = FactoryGirl.build(:event, :upcoming, name: "Event 1")
+    @event2 = FactoryGirl.build(:event, :upcoming, name: "Event 2")
+    @event3 = FactoryGirl.build(:event, :upcoming, name: "Event 3")
+    EventHelpers.create_list([@event1, @event2, @event3])
   end
 
   scenario "User click an event in homepage" do

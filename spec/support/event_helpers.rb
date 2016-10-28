@@ -1,15 +1,16 @@
 module EventHelpers
 
-  def self.event_creator(event_name, event_trait, category)
-    if event_trait == "upcoming"
-      event = FactoryGirl.build(:event, :upcoming, name: "#{event_name}")
-    else
-      event = FactoryGirl.build(:event, :past_event, name: "#{event_name}")
+  def self.create(event)
+    event.category = CategoryHelpers.get_or_create
+    event.venue = VenueHelpers.get_or_create event.name
+    event.save!
+  end
+
+  def self.create_list(events)
+    created_events = Array.new
+    events.each do |event|
+      created_events << self.create(event)
     end
-    event.category = category
-    event.venue = FactoryGirl.create(:venue, name: event.name)
-    event.save
-    return event
   end
 
 end
