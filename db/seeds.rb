@@ -157,4 +157,7 @@ e = Event.create({
 
                      DESC
                      })
-                     e.ticket_types << TicketType.create(name: 'General', price: 99000, max_quantity: 1000)
+                     e.ticket_types << TicketType.create(name: 'Vé loại A', price: 500000, max_quantity: 5)
+                     e.ticket_types << TicketType.create(name: 'Vé loại B', price: 300000, max_quantity: 50)
+                     e.ticket_types << TicketType.create(name: 'Vé loại C', price: 200000, max_quantity: 100)
+                     e.ticket_types << TicketType.create(name: 'Vé loại D', price: 150000, max_quantity: 200)

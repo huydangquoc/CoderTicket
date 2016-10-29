@@ -7,19 +7,31 @@ RSpec.describe "events/index", type: :view do
 
   context "with 2 events" do
     before do
-      event1 = FactoryGirl.build(:event, :upcoming, name: "Event 1")
-      event2 = FactoryGirl.build(:event, :past_event, name: "Event 2")
-      event3 = FactoryGirl.build(:event, :past_event, name: "Event 3")
-      EventHelpers.create_list([event1, event2, event3])
+      @event1 = FactoryGirl.build(:event, :upcoming, name: "Event 1")
+      @event2 = FactoryGirl.build(:event, :past_event, name: "Event 2")
+      EventHelpers.create_list([@event1, @event2])
       # assign
-      assign(:events, [event1, event2])
+      assign(:events, [@event1, @event2])
     end
 
-    it "displays both widgets" do
+    it "displays upcoming event" do
       render
 
-      expect(rendered).to match /Event 1/
-      expect(rendered).to match /Event 2/
+      expect(rendered).to include "Event 1"
+    end
+
+    # code logic choose what to show is in controller, view only take part in show it correctly
+    it "displays past event" do
+      render
+
+      expect(rendered).to include "Event 2"
+    end
+
+    it "displays both events" do
+      render
+
+      expect(rendered).to include "Event 1"
+      expect(rendered).to include "Event 2"
     end
 
   end

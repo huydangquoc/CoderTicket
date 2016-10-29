@@ -9,6 +9,16 @@ FactoryGirl.define do
     DESC
     starts_at { Time.now }
 
+    # # not work for now, need to investigate
+    # factory :event_with_tickets do
+    #   after(:create) do |event|
+    #     create(:ticket_type, event: event)
+    #     create(:ticket_vip, event: event)
+    #     create(:ticket_eco, event: event)
+    #     create(:ticket_free, event: event)
+    #   end
+    # end
+
     trait :upcoming do
       # Action View Date Helpers
       # http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html
