@@ -4,8 +4,8 @@
 
 - Submitted by: **Dang Quoc Huy**
 - Time spent: **20** hours
-- URL: **Insert your Heroku URL here**
-- SimpleCov Test Coverage: [coverage/index.html][coverage][index.html]
+- URL: **https://testticket-huydang.herokuapp.com/**
+- SimpleCov Test Coverage: [coverage/index.html](http://i.imgur.com/oW7cPbm.png)
 
 ## User Stories
 
