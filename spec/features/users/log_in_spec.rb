@@ -8,6 +8,7 @@
 require 'rails_helper'
 
 RSpec.feature "Log In", type: :feature do
+
   scenario "User can login with valid account info" do
     sign_up_account
     click_on "Log Out"
