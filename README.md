@@ -1,9 +1,9 @@
-# Homework 3 - *Name of App*
+# Homework 3 - *Ticket Trade*
 
-**Name of your app** is a Ruby on Rails application that allows users to create and buy tickets to cool events.
+**Ticket Trade** is a Ruby on Rails application that allows users to create and buy tickets to cool events.
 
 - Submitted by: **Dang Quoc Huy**
-- Time spent: **X** hours
+- Time spent: **20** hours
 - URL: **Insert your Heroku URL here**
 - SimpleCov Test Coverage: [coverage/index.html][coverage][index.html]
 
@@ -12,7 +12,7 @@
 The following **required** functionality is complete:
 
 * [ ] Implement required user stories
-* [ ] 10 model tests, 2 route tests, 2 controller tests, 2 view tests.
+* [x] 10 model tests, 2 route tests, 2 controller tests, 2 view tests.
 
 The person with best test coverage will win a small present from the instructor :)
 
@@ -37,8 +37,8 @@ The person with best test coverage will win a small present from the instructor 
 
 #### Users
 
-* [ ] User can sign up by providing their email, password, and name.
-* [ ] User can login using an email and password.
+* [x] User can sign up by providing their email, password, and name.
+* [x] User can login using an email and password.
 * [ ] Users can create events.
 * [ ] Users must click "publish event" before an event becomes viewable to other users.
     * **HINT**: use `published_at:datetime` and `Event.published` scope (class method)
