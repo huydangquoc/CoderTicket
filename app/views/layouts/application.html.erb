@@ -2,15 +2,20 @@
 <html>
   <head>
     <title>CsTemplate</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <nav class="navbar navbar-dark bg-inverse">
-      <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
+      <a class="navbar-brand" href="<%= root_path %>">
+        Coder Ticket
+      </a>
       <ul class="nav navbar-nav">
         <% if current_user %>
+          <li class="nav-item">
+            <%= link_to "New Event", new_event_path, class: 'nav-link' %>
+          </li>
           <li class="nav-item pull-xs-right">
             <%= link_to "Log Out #{current_user.name}", logout_path, method: 'delete', class: 'nav-link' %>
           </li>

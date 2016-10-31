@@ -1,0 +1,47 @@
+<h1>Create Event</h1>
+<%= form_for @event do |f| %>
+  <% unless @event.errors.empty? %>
+    <div class='alert alert-danger'>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, placeholder: "Event Name", class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Category", class: 'form-control-label' %><br>
+    <%= f.select(:category_id) do %>
+      <% Category.all.each do |category| %>
+        <%= content_tag(:option, "#{category.name}", value: category.id) %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :starts_at %><br>
+    <%= select_datetime Date.today, :prefix => :starts_at, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ends_at %><br>
+    <%= select_datetime Date.today, :prefix => :ends_at, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Venue", class: 'form-control-label' %><br>
+    <%= f.select(:venue_id) do %>
+      <% Venue.all.each do |venue| %>
+        <%= content_tag(:option, "#{venue.name} (#{venue.full_address})", value: venue.id) %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Image URL" %><br>
+    <%= f.text_field :hero_image_url, placeholder: "Link to event image", class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Description" %><br>
+    <%= f.text_field :extended_html_description, placeholder: "Extended HTML Description", class: 'form-control' %>
+  </div>
+  <%= f.submit "Create Event", class: 'btn btn-secondary' %>
+<% end %>
