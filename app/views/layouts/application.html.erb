@@ -16,6 +16,9 @@
           <li class="nav-item">
             <%= link_to "New Event", new_event_path, class: 'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Publish", unpublished_events_path, class: 'nav-link' %>
+          </li>
           <li class="nav-item pull-xs-right">
             <%= link_to "Log Out #{current_user.name}", logout_path, method: 'delete', class: 'nav-link' %>
           </li>

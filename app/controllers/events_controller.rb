@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_user, :only => [:new, :create]
+  before_filter :authenticate_user, :only => [:new, :create, :published, :unpublished, :publish]
 
   def index
     if params[:search]
@@ -11,6 +11,25 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+  end
+
+  def published
+    @events = Event.published(current_user.id).order(created_at: :desc)
+  end
+
+  def unpublished
+    @events = Event.unpublished(current_user.id).order(created_at: :desc)
+  end
+
+  def publish
+    @event = Event.find(params[:id])
+    if @event.user.id == current_user.id
+      @event.published_at = Time.now
+      @event.save!
+      redirect_to unpublished_events_path, flash: {success: "Event is published successfully."}
+    else
+      redirect_to unpublished_events_path, flash: {error: "You're not owner of this event."}
+    end
   end
 
   def new
@@ -41,7 +60,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :category_id, :starts_at, :ends_at, :venue_id, :hero_image_url, :extended_html_description)
+    params.require(:event).permit(:user_id, :name, :category_id, :starts_at, :ends_at, :venue_id, :hero_image_url, :extended_html_description)
   end
 
 end

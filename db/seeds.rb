@@ -2,6 +2,12 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
+# Create user
+user = User.create(name: "Dang Quoc Huy",
+                   email: "huy@dang",
+                   password: "123",
+                   password_confirmation: "123")
+
 # Create Regions
 ['Ho Chi Minh', 'Ha Noi', 'Binh Thuan', 'Da Nang', 'Lam Dong'].each do |r|
   Region.create(name: r)
@@ -24,6 +30,8 @@ e = Event.create({
                    name: 'Việt Nam Thử Thách Chiến Thắng',
                    starts_at: DateTime.parse('Fri, 11 Mar 2016 7:00 AM+0700'),
                    ends_at: DateTime.parse('Sun, 13 Mar 2016 3:00 PM+0700'),
+                   published_at: Time.now,
+                   user: user,
                    venue: dalat,
                    category: Category.find_by(name: 'Everything Else'),
                    hero_image_url: 'https://az810747.vo.msecnd.net/eventcover/2015/10/25/C6A1A5.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
@@ -54,6 +62,8 @@ e = Event.create({
                    category: Category.find_by(name: 'Entertainment'),
                    starts_at: DateTime.parse('Sat, 16 Jan 2016, 8:00 PM+0700'),
                    ends_at: DateTime.parse('Sat, 16 Jan 2016, 10:30 PM+0700'),
+                   published_at: Time.now,
+                   user: user,
                    hero_image_url: 'https://az810747.vo.msecnd.net/eventcover/2015/12/11/C68636.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',
                    extended_html_description: <<-DESC
                    <p style="text-align:justify"> </p>
@@ -135,6 +145,8 @@ e = Event.create({
                    name: 'Merry Christmas Never Alone',
                    starts_at: DateTime.parse('Fri, 18 Nov 2016, 8:00 PM+0700'),
                    ends_at: DateTime.parse('Sat, 19 Nov 2016, 11:00 PM+0700'),
+                   published_at: Time.now,
+                   user: user,
                    venue: gap,
                    category: Category.find_by(name: 'Entertainment'),
                    hero_image_url:'https://az810747.vo.msecnd.net/eventcover/2015/12/12/78534E.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter',

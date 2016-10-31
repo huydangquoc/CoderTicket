@@ -1,0 +1,24 @@
+<h1>Events Waiting For Publishing</h1>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Event Name</th>
+      <th>Created at</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.created_at.strftime("%d %b  %Y at %I:%M%p")%></td>
+        <td>
+          <%= link_to publish_event_path(id: event.id), method: "post" do %>
+            <button class='btn btn-lg btn-block btn-primary'> Publish </button>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
