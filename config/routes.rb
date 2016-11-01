@@ -12,5 +12,6 @@ Rails.application.routes.draw do
       get :published
     end
     resources :tickets
+    resources :ticket_types
   end
 end

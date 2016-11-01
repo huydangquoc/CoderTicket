@@ -15,7 +15,7 @@
         <td><%= event.created_at.strftime("%d %b  %Y at %I:%M%p")%></td>
         <td>
           <%= link_to publish_event_path(id: event.id), method: "post" do %>
-            <button class='btn btn-lg btn-block btn-primary'> Publish </button>
+            <button class='btn btn-lg btn-block btn-success'> Publish </button>
           <% end %>
         </td>
       </tr>
