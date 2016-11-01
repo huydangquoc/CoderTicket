@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  before_filter :authenticate_user
 
   def index
     @venues = Venue.all.order(created_at: :desc)
