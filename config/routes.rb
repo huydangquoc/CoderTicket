@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create]
+  resources :venues
 
   post 'publish/:id' => 'events#publish', :as => :publish_event
   delete '/logout' => 'sessions#destroy'
